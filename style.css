@@ -60,11 +60,48 @@ body {
 }
 
 /* The side navigation menu */
+/* Hamburger — opens sidenav (top left) */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: var(--orange-button-background);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.menu-toggle:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--black-text);
+  outline-offset: 2px;
+}
+.menu-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 3px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 1px;
+}
+
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 1000; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #ffffff; /* Black*/
@@ -98,15 +135,44 @@ body {
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
-}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+/* Typewriter (character-by-character + blinking cursor) */
+/* Spans are inline by default — vertical margins don't move them. Use inline-block on the host so margin/padding work. */
+[data-typewriter] {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.typewriter-line {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black-text);
+  min-height: 1.4em;
+  margin: 5.5rem 1rem 0 1rem;
+  max-width: 36rem;
+  line-height: 1.35;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: var(--orange-button-background);
+  animation: typewriter-cursor-blink 0.85s step-end infinite;
+}
+
+@keyframes typewriter-cursor-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ////////////// Image styles /////////////////*/
@@ -116,7 +182,7 @@ body {
   max-width: 100%;
 }
 
-.img-headshot { width: 128px; height: 128px; border-radius: 50%}
+.img-headshot { width: 400px; height: 400px; border-radius: 50%}
 .img-project1 { width: 256px; height: 144px; border-radius: 8px}
 .img-contact {width: 250px; height: 250px; border-radius: 5%}
 
@@ -196,7 +262,7 @@ body {
 }
 
 /* Solid */
-.btn-primary   { background: var(--orange-button-background);   color: #fff; }
+.btn-primary   { background: var(--orange-button-background);   color: #fff; font-size: var(--text-md)}
 .btn-secondary { background: var(--white-button-background); color: #000000; }
 .btn-success   { background: var(--color-success);   color: #fff; }
 .btn-skills    { background: var(--color-error);     color: #fff; cursor: default; pointer-events: none; }
