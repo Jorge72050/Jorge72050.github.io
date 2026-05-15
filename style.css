@@ -244,13 +244,15 @@ body:has(.site-top-bar) {
 
 /* ////////////// Project Card effects //////////////////////*/
 .project-card {
+  display: inline-flex;
   position: relative;
   display: block;
   overflow: hidden;
   border-radius: 12px;
   cursor: pointer;
-  width: 400px;
-  height: 300px;
+  width: 48%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 
 /* Image dims on hover */
@@ -292,6 +294,8 @@ body:has(.site-top-bar) {
 /* Base Button */
 .btn {
   display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -337,3 +341,14 @@ body:has(.site-top-bar) {
 
 /* Full width */
 .btn-block { display: flex; width: 100%; }
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
